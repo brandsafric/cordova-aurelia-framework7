@@ -1,0 +1,50 @@
+<template>
+  <require from="framework7/dist/css/framework7.css"></require>
+  <require from="framework7-icons/css/framework7-icons.css"></require>
+  <!-- Status bar overlay for full screen mode (PhoneGap) -->
+  <div class="statusbar-overlay"></div>
+  <!-- Panels overlay-->
+  <div class="panel-overlay"></div>
+  <!-- Left panel with reveal effect-->
+  <div class="panel panel-left panel-reveal">
+    <div class="content-block">
+      <div class="item-content">
+        <div class="list links-list">
+          <ul>
+            <li>
+              <a class="link" href="#" click.delegate="go('home')">Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="views">
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main view-init">
+      <!-- Top Navbar-->
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="panel-open">
+              <i class="icon f7-icons">menu</i>
+            </a>
+          </div>
+          <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+          <div class="title center sliding">${router.title}</div>
+        </div>
+      </div>
+      <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+      <div class="pages navbar-fixed toolbar-through">
+        <!-- Page, "data-page" contains page name -->
+        <div class="page page-current">
+          <!-- Scrollable page content -->
+          <div class="page-content">
+            <router-view></router-view>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
